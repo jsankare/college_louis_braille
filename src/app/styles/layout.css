@@ -1,0 +1,26 @@
+/* styles/layout.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-geist-sans), sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+main {
+    flex: 1;
+    width: 90%;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
