@@ -1,9 +1,40 @@
 .header {
-    background: #111;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    z-index: 1000;
+    padding: 1rem 15rem;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: backdrop-filter 0.3s ease, background 0.3s ease;
+
+    background: rgba(2, 2, 4, 0.90);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    h1 {
+        font-size: 2rem;
+        color: var(--color-accent);
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+
+        li {
+            a {
+                color: var(--color-white);
+                &:hover {
+                    color: var(--color-accent);
+                }
+            }
+            a.active {
+                color: var(--color-accent);
+            }
+        }
+    }
 }

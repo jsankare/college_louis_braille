@@ -1,14 +1,27 @@
-// import Image from "next/image";
+import CustomLink from "@/app/components/ui/customLink";
 import styles from "./page.module.css";
-import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <p>toto main</p>
-        <Link href="/about">Aller à la page À propos</Link>
-      </main>
-    </div>
-  );
+    return (
+        <section className={styles.container}>
+            <section className={styles.heroSection}>
+                <div className={styles.background}></div>
+                <div className={styles.content}>
+                    <h1>JEWELS</h1>
+                    <p>bijoux désirés, à toi de les personnaliser</p>
+                    <CustomLink link="/products" label="Voir les produits" background={true} />
+                </div>
+            </section>
+            <section className={styles.bottomSection}>
+                <div>
+                    <h3>Bonjour, bienvenue chez Jewels ! Nous espérons que vous trouverez votre bijou à personnaliser.</h3>
+                </div>
+                <div className={styles.bottomSection__mission}>
+                    <h2>Notre mission</h2>
+                    <p>Pour chaque achat effectué, une partie des bénéfices sera reversée pour soutenir les enfants
+                        dans le besoin. Ensemble, nous pouvons faire une différence tout en étant stylés.</p>
+                </div>
+            </section>
+        </section>
+    );
 }

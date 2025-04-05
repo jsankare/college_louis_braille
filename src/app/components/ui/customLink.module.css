@@ -1,0 +1,13 @@
+.customlink__background {
+    background-color: var(--color-accent);
+    padding: 0.75rem 2.5rem;
+    border-radius: 1.5rem;
+    font-weight: 500;
+    font-size: 1.25rem;
+    color: var(--color-black);
+    transition: all 0.15s ease-in-out;
+    &:hover {
+        background-color: var(--color-black);
+        color: var(--color-accent);
+    }
+}
