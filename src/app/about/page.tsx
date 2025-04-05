@@ -1,8 +1,8 @@
 export default function About() {
     return (
-        <div>
-            <h1>À propos</h1>
-            <p>Bienvenue sur la page à propos.</p>
-        </div>
+        <section>
+            <h1>Contact</h1>
+            <p>Bienvenue sur la page de contact.</p>
+        </section>
     );
 }

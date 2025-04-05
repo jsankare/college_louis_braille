@@ -1,5 +1,5 @@
 .container {
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary-dark);
 }
 
 .heroSection {
@@ -59,4 +59,11 @@
             font-style: italic;
         }
     }
+}
+
+.bottomSection__text {
+    line-height: 1.5;
+    max-width: 50%;
+    margin: 0 auto;
+    font-size: 1.25rem;
 }
