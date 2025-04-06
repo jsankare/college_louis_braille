@@ -22,7 +22,7 @@ export default function Header() {
 
     return (
         <header className="header">
-            <h1>JEWELS</h1>
+            <h1><a href='/'>JEWELS</a></h1>
 
             <div className={`burger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
                 <span></span>

@@ -25,7 +25,7 @@ export default function Footer() {
             title: "Contact",
             iconOnly: false,
             links: [
-                { name: "Adresse de l'évènement", url: "/contact" },
+                { name: "Adresse de l'évènement",blank: true, url: "https://www.google.com/maps/place/Middle+School+Louis+Braille/@48.8965192,2.8051504,17z/data=!3m1!4b1!4m6!3m5!1s0x47e61d97445f427b:0x7545200b47346b3!8m2!3d48.8965192!4d2.8051504!16s%2Fg%2F1th27pxs?hl=en&entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D" },
                 { name: "Date", url: "/contact" },
             ]
         }
@@ -45,7 +45,10 @@ export default function Footer() {
 
                                 return (
                                     <li key={linkIndex}>
-                                        <a href={link.url} rel="noopener noreferrer">
+                                        <a
+                                            href={link.url}
+                                            {...(link.blank ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                                        >
                                             {section.iconOnly ? (
                                                 <img
                                                     src={logoSrc}

@@ -12,11 +12,10 @@
     background: rgba(2, 2, 4, 0.90);
     backdrop-filter: blur(8px);
     font-size: 1rem;
-}
-
-.header h1 {
-    font-size: 2rem;
-    color: var(--color-accent);
+    h1 {
+        font-size: 2rem;
+        color: var(--color-accent);
+    }
 }
 
 .desktop-nav ul {
@@ -113,4 +112,8 @@
     .burger {
         display: flex;
     }
+}
+
+.logo {
+
 }

@@ -1,9 +1,5 @@
 import styles from '../styles/about.module.css';
 
-// translate in french for the content of my p : Founded by passionate students, JEWELS represents the perfect blend of style, innovation, and social responsibility. Our journey began with a simple idea: create customizable accessories that not only look stunning but also make a difference in the world.
-
-
-
 const Values = [
     {
         icon: '🎨',

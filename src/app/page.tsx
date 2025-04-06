@@ -5,6 +5,7 @@ export default function Home() {
     return (
         <section className={styles.container}>
             <section className={styles.heroSection}>
+                <img src="/assets/logo-circle.webp" alt="Logo" className={styles.logo} />
                 <div className={styles.background}></div>
                 <div className={styles.content}>
                     <h1>JEWELS</h1>
@@ -14,7 +15,7 @@ export default function Home() {
             </section>
             <section className={styles.bottomSection}>
                 <div>
-                    <h3>Bonjour, bienvenue chez Jewels ! Nous espérons que vous trouverez votre bijou à personnaliser.</h3>
+                    <h3>Bonjour, bienvenue chez Jewels&nbsp;! Nous espérons que vous trouverez votre bijou à personnaliser.</h3>
                 </div>
             </section>
         </section>
