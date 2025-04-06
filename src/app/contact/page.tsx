@@ -45,14 +45,6 @@ export default function Contact() {
                     </div>
                 </div>
             </section>
-
-            <section className={styles.mission__container}>
-                <div className={styles.mission}>
-                    <h2>Notre Mission</h2>
-                    <p className={styles.bottomSection__text}>Pour chaque achat effectué, une partie des bénéfices sera reversée pour soutenir les enfants
-                        dans le besoin. Ensemble, nous pouvons faire une différence tout en étant stylés.</p>
-                </div>
-            </section>
         </div>
     );
 }

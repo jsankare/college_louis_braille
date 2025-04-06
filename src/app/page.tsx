@@ -16,11 +16,6 @@ export default function Home() {
                 <div>
                     <h3>Bonjour, bienvenue chez Jewels ! Nous espérons que vous trouverez votre bijou à personnaliser.</h3>
                 </div>
-                <div className={styles.bottomSection__mission}>
-                    <h2>Notre Mission</h2>
-                    <p className={styles.bottomSection__text}>Pour chaque achat effectué, une partie des bénéfices sera reversée pour soutenir les enfants
-                        dans le besoin. Ensemble, nous pouvons faire une différence tout en étant stylés.</p>
-                </div>
             </section>
         </section>
     );

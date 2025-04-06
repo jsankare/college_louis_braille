@@ -25,8 +25,8 @@ export default function Footer() {
             title: "Contact",
             iconOnly: false,
             links: [
-                { name: "Adresse de l'évènement", url: "/" },
-                { name: "Date", url: "/" },
+                { name: "Adresse de l'évènement", url: "/contact" },
+                { name: "Date", url: "/contact" },
             ]
         }
     ]
@@ -45,7 +45,7 @@ export default function Footer() {
 
                                 return (
                                     <li key={linkIndex}>
-                                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                        <a href={link.url} rel="noopener noreferrer">
                                             {section.iconOnly ? (
                                                 <img
                                                     src={logoSrc}

@@ -4,8 +4,10 @@ import "./globals.css";
 import "./styles/layout.css";
 import "./styles/layout/header.css";
 import "./styles/layout/footer.css";
+import "./styles/layout/mission.css";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
+import MissionBaneer from "./components/ui/MissionBaneer";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -31,7 +33,10 @@ export default function RootLayout({
         <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} body`}>
         <Header />
-        <main>{children}</main>
+        <main>
+            {children}
+            <MissionBaneer />
+        </main>
         <Footer />
         </body>
         </html>
