@@ -17,7 +17,7 @@
     width: 35rem;
     @media (min-width: 435px) {
         width: 45rem;
-        bottom: 1rem;
+        /* bottom: 1rem; */
     }
 }
 
