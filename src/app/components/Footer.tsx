@@ -75,7 +75,7 @@ export default function Footer() {
                 Collège Louis Braille
                 </a> - Tous droits réservés - Création&nbsp;
                 <a href="https://www.jsankare.dev/" >
-                    Jordan Sankare
+                    Jordan Sankare.
                 </a>
             </small>
         </footer>
