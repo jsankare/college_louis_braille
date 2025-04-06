@@ -1,4 +1,3 @@
-import { link } from 'fs';
 import styles from '../styles/contact.module.css';
 
 const contactInformations = [

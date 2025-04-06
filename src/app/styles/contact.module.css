@@ -14,10 +14,11 @@
     align-items: center;
     flex-grow: 1;
     gap: 4rem;
-    h1 {
-        text-align: center;
-        font-size: 2rem;
-    }
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 2rem;
 }
 
 .grid {
@@ -99,9 +100,10 @@
     gap: 0.5rem;
     color: var(--color-accent);
     font-weight: 500;
-    p {
-        margin: 0;
-    }
+}
+
+.event p {
+    margin: 0;
 }
 
 .mission__container {

@@ -59,25 +59,27 @@
     padding: 4rem;
     width: 65%;
     margin: 0 auto;
-    div {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 500;
-            font-style: italic;
-            line-break: strict;
-            word-break: keep-all;
-            white-space: normal;
-        }
-    }
+
     @media (max-width: 768px) {
         width: 90%;
         padding: 4rem 2rem;
     }
 }
 
+.bottomSection div {
+    display: flex;
+        flex-direction: column;
+        gap: 2rem;
+}
+
+.bottomSection div h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-style: italic;
+    line-break: strict;
+    word-break: keep-all;
+    white-space: normal;
+}
 
 .bottomSection__text {
     line-height: 1.5;

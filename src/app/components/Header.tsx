@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 export default function Header() {
     const pathname = usePathname()
@@ -22,7 +23,7 @@ export default function Header() {
 
     return (
         <header className="header">
-            <h1><a href='/'>JEWELS</a></h1>
+            <h1><Link href='/'>JEWELS</Link></h1>
 
             <div className={`burger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
                 <span></span>

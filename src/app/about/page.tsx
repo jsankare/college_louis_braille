@@ -26,7 +26,7 @@ export default function About() {
                 <h1>A propos de Jewels</h1>
                 <p>
                     Fondée par des étudiants passionnés, JEWELS représente le parfait mélange de style,
-                    d'innovation et de responsabilité sociale. Notre parcours a commencé avec une idée simple : 
+                    d&#39;innovation et de responsabilité sociale. Notre parcours a commencé avec une idée simple : 
                     créer des accessoires personnalisables qui non seulement ont fière allure, mais qui font 
                     également une différence dans le monde.
                 </p>

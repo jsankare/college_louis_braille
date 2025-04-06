@@ -27,19 +27,19 @@
     align-items: center;
     margin: 0 auto;
     width: 100%;
+}
 
-    h1 {
-        font-size: 2rem;
-        font-weight: 700;
-        margin-top: 5rem;
-        text-align: center;
-    }
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 5rem;
+    text-align: center;
+}
 
-    p {
-        text-align: center;
-        line-height: 1.75;
-        font-size: 1.25rem;
-    }
+.header p {
+    text-align: center;
+    line-height: 1.75;
+    font-size: 1.25rem;
 }
 
 .values {
@@ -53,22 +53,21 @@
     padding: 2rem;
     border-radius: 1rem;
     width: 100%;
+}
 
+.values ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-
-        li {
-            font-size: 1.15rem;
-            display: flex;
-            gap: 0.5rem;
-        }
-    }
+.values ul li {
+    font-size: 1.15rem;
+    display: flex;
+    gap: 0.5rem;
 }
 
 .promise {
@@ -82,15 +81,13 @@
     @media (max-width: 768px) {
         margin-bottom: 1rem;
     }
-
-
-    h2 {
-        color: var(--color-accent);
-    }
-
-    p {
-        line-height: 1.5;
-        color: var(--color-white);
-    }
 }
 
+.promise h2 {
+    color: var(--color-accent);
+}
+
+.promise p {
+    line-height: 1.5;
+    color: var(--color-white);
+}
