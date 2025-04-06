@@ -1,7 +1,7 @@
 .footer {
     background: var(--color-black);
     color: var(--color-white);
-    padding: 15px;
+    padding: 1rem;
     font-size: 1rem;
     width: 100%;
     display: flex;
@@ -25,6 +25,10 @@
         max-width: 1200px;
         margin: 0 auto;
         text-align: left;
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 2rem;
+        }
 
         .footer-section {
             display: flex;
@@ -32,6 +36,11 @@
             flex: 1;
             align-items: flex-start;
             gap: 0.5rem;
+            @media (max-width: 768px) {
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
 
             h3 {
                 margin: 0;
@@ -55,6 +64,7 @@
         }
     }
     small {
+        text-align: center;
         a {
             transition: color 0.3s ease;
             &:hover {

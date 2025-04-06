@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react'
 export default function Header() {
     const pathname = usePathname()
     const [activePath, setActivePath] = useState('')
+    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         setActivePath(pathname)
+        setMenuOpen(false)
     }, [pathname])
 
     const links = [
@@ -21,7 +23,14 @@ export default function Header() {
     return (
         <header className="header">
             <h1>JEWELS</h1>
-            <nav>
+
+            <div className={`burger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav className="desktop-nav">
                 <ul>
                     {links.map((link) => (
                         <li key={link.name}>
@@ -32,6 +41,20 @@ export default function Header() {
                     ))}
                 </ul>
             </nav>
+
+            {menuOpen && (
+                <nav className="mobile-nav">
+                    <ul>
+                        {links.map((link) => (
+                            <li key={link.name}>
+                                <a href={link.path} className={activePath === link.path ? 'active' : ''}>
+                                    {link.name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            )}
         </header>
     )
 }
