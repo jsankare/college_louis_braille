@@ -3,9 +3,9 @@ import styles from '../styles/contact.module.css';
 const contactInformations = [
     {
         title: "Email",
-        value: "contact@me.com",
+        value: "Cliquez pour prendre contact avec nous !",
         icon: "/mail.svg",
-        link: "mailto:contact@me.fr",
+        link: "mailto:lbjewels77@gmail.com",
     },
     {
         title: "Adresse",
