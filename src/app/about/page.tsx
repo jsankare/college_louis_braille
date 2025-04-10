@@ -19,6 +19,29 @@ const Values = [
     },
 ]
 
+const Members = [
+    {
+        name: "Tonto Barbaris",
+        role: "Design",
+    },
+    {
+        name: "Louis Braille",
+        role: "Développeur",
+    },
+    {
+        name: "Louis Pasteur",
+        role: "Marketing",
+    },
+    {
+        name: "Marie Curie",
+        role: "Ventes",
+    },
+    {
+        name: "Albert Einstein",
+        role: "Finance",
+    }
+]
+
 export default function About() {
     return (
         <div className={styles.wrapper}>
@@ -30,6 +53,19 @@ export default function About() {
                     créer des accessoires personnalisables qui non seulement ont fière allure, mais qui font 
                     également une différence dans le monde.
                 </p>
+            </section>
+            <section className={styles.values}>
+                <h2>Notre équipe</h2>
+                <div className={styles.valuesContainer}>
+                    <ul>
+                        {Members.map((member, index) => (
+                            <li key={index} className={styles.valueItem}>
+                                <h3 className={styles.text}>{member.name}</h3>
+                                <span className={styles.role}>{member.role}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </section>
             <section className={styles.values}>
                 <h2>Nos valeurs</h2>
