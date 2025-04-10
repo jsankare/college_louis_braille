@@ -1,4 +1,5 @@
 import styles from '../styles/about.module.css';
+import Slider from '../components/ui/Slider';
 
 const Values = [
     {
@@ -21,24 +22,32 @@ const Values = [
 
 const Members = [
     {
-        name: "Tonto Barbaris",
+        name: "Marc",
         role: "Design",
     },
     {
-        name: "Louis Braille",
-        role: "Développeur",
+        name: "Idriss",
+        role: "Vente",
     },
     {
-        name: "Louis Pasteur",
-        role: "Marketing",
+        name: "Louise",
+        role: "Production",
     },
     {
-        name: "Marie Curie",
-        role: "Ventes",
+        name: "Marie",
+        role: "gestion",
     },
     {
-        name: "Albert Einstein",
-        role: "Finance",
+        name: "Alan",
+        role: "Production",
+    },
+    {
+        name: "Lana",
+        role: "Vente",
+    },
+    {
+        name: "Azer",
+        role: "Production",
     }
 ]
 
@@ -49,23 +58,14 @@ export default function About() {
                 <h1>A propos de Jewels</h1>
                 <p>
                     Fondée par des étudiants passionnés, JEWELS représente le parfait mélange de style,
-                    d&#39;innovation et de responsabilité sociale. Notre parcours a commencé avec une idée simple : 
-                    créer des accessoires personnalisables qui non seulement ont fière allure, mais qui font 
+                    d&#39;innovation et de responsabilité sociale. Notre parcours a commencé avec une idée simple :
+                    créer des accessoires personnalisables qui non seulement ont fière allure, mais qui font
                     également une différence dans le monde.
                 </p>
             </section>
             <section className={styles.values}>
                 <h2>Notre équipe</h2>
-                <div className={styles.valuesContainer}>
-                    <ul>
-                        {Members.map((member, index) => (
-                            <li key={index} className={styles.valueItem}>
-                                <h3 className={styles.text}>{member.name}</h3>
-                                <span className={styles.role}>{member.role}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <Slider members={Members} />
             </section>
             <section className={styles.values}>
                 <h2>Nos valeurs</h2>
@@ -83,7 +83,7 @@ export default function About() {
             <section className={styles.promise}>
                 <h2>Notre promesse</h2>
                 <p>
-                    Nous nous engageons à offrir des produits de la plus haute qualité, tout en ayant un impact positif sur la société. 
+                    Nous nous engageons à offrir des produits de la plus haute qualité, tout en ayant un impact positif sur la société.
                     Chaque achat contribue à améliorer la vie des enfants dans le besoin.
                 </p>
             </section>
