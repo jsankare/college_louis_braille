@@ -81,7 +81,6 @@
     flex: 1;
     overflow: hidden;
     position: relative;
-    padding: 1rem;
 }
 
 /* Decorative corner elements */
@@ -240,18 +239,18 @@
 
 @media (max-width: 768px) {
     .slider {
-        padding: 1rem 0;
+        padding: 2.5rem 0;
     }
 
     .navButton {
         font-size: 1.25rem;
         padding: 0.75rem;
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     .sliderItem {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .sliderItem h3 {
