@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, TouchEvent } from 'react';
 import styles from "./slider.module.css";
 
 interface Member {
@@ -17,6 +17,8 @@ interface SliderProps {
 export default function Slider({ members }: SliderProps) {
     const [currentRole, setCurrentRole] = useState<string>('Gestion');
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState<number>(0);
+    const [touchEnd, setTouchEnd] = useState<number>(0);
 
     // Group members by role
     const roleGroups = useMemo(() => {
@@ -54,6 +56,42 @@ export default function Slider({ members }: SliderProps) {
         setCurrentIndex(0);
     };
 
+    // Handle touch events for swipe
+    const handleTouchStart = (e: TouchEvent) => {
+        setTouchStart(e.touches[0].clientX);
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+        setTouchEnd(e.touches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > 50;
+        const isRightSwipe = distance < -50;
+
+        if (isLeftSwipe) {
+            nextSlide();
+        }
+        if (isRightSwipe) {
+            prevSlide();
+        }
+
+        setTouchStart(0);
+        setTouchEnd(0);
+    };
+
+    // Auto-advance slides
+    useEffect(() => {
+        const timer = setInterval(() => {
+            nextSlide();
+        }, 5000);
+
+        return () => clearInterval(timer);
+    }, [currentIndex, currentMembers.length]);
+
     return (
         <div className={styles.sliderContainer}>
             <div className={styles.tabs}>
@@ -73,7 +111,12 @@ export default function Slider({ members }: SliderProps) {
 
             <div className={styles.slider}>
                 <button className={styles.navButton} onClick={prevSlide}>&lt;</button>
-                <div className={styles.sliderContent}>
+                <div
+                    className={styles.sliderContent}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
                     <div
                         className={styles.sliderTrack}
                         style={{
@@ -89,9 +132,19 @@ export default function Slider({ members }: SliderProps) {
 
                                 <div className={styles.imageContainer}>
                                     {member.picture ? (
-                                        <img src={member.picture} alt={member.name} className={styles.memberImage} />
+                                        <img
+                                            src={member.picture}
+                                            alt={member.name}
+                                            className={styles.memberImage}
+                                            loading="lazy"
+                                        />
                                     ) : (
-                                        <img src="/images/astronaut.png" alt={member.name} className={styles.memberImage} />
+                                        <img
+                                            src="/images/astronaut.png"
+                                            alt={member.name}
+                                            className={styles.memberImage}
+                                            loading="lazy"
+                                        />
                                     )}
                                 </div>
 
@@ -110,6 +163,7 @@ export default function Slider({ members }: SliderProps) {
                             key={index}
                             className={`${styles.dot} ${index === currentIndex ? styles.activeDot : ''}`}
                             onClick={() => setCurrentIndex(index)}
+                            aria-label={`Go to slide ${index + 1}`}
                         />
                     ))}
                 </div>

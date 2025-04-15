@@ -3,11 +3,12 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    padding: 0 1rem;
 }
 
 .tabs {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     justify-content: center;
     flex-wrap: wrap;
     padding: 0 1rem;
@@ -17,14 +18,15 @@
     background: rgba(234, 179, 8, 0.1);
     border: 1px solid var(--color-accent);
     color: var(--color-accent);
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    font-size: 0.875rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    white-space: nowrap;
 }
 
 .tab:hover {
@@ -37,7 +39,7 @@
 }
 
 .memberCount {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     opacity: 0.8;
 }
 
@@ -46,14 +48,13 @@
     position: relative;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem 0;
+    gap: 0.5rem;
+    padding: 1.5rem 0;
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(12, 17, 27, 0.9) 100%);
     border-radius: 1rem;
     overflow: hidden;
 }
 
-/* Decorative background pattern */
 .slider::before {
     content: '';
     position: absolute;
@@ -83,13 +84,12 @@
     position: relative;
 }
 
-/* Decorative corner elements */
 .sliderContent::before,
 .sliderContent::after {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     border: 2px solid var(--color-accent);
     opacity: 0.5;
     transition: opacity 0.3s ease;
@@ -123,13 +123,20 @@
 
 .sliderItem {
     flex: 0 0 100%;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     background: rgba(8, 12, 19, 0.8);
     border-radius: 0.75rem;
     transition: all 0.3s ease;
     transform: scale(0.98);
     opacity: 0.8;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    touch-action: pan-y pinch-zoom;
 }
 
 .sliderItem.active {
@@ -139,13 +146,12 @@
 
 .sliderItem h3 {
     color: var(--color-accent);
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    margin: 0;
     position: relative;
     display: inline-block;
 }
 
-/* Decorative underline for headings */
 .sliderItem h3::after {
     content: '';
     position: absolute;
@@ -164,26 +170,27 @@
 
 .sliderItem p {
     color: var(--color-white);
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin: 0;
 }
 
 .navButton {
     background: rgba(234, 179, 8, 0.1);
     border: 1px solid var(--color-accent);
     color: var(--color-accent);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     cursor: pointer;
-    padding: 1rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     transition: all 0.3s ease;
     z-index: 2;
-    width: 2.5rem;
-    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 0.5rem;
+    margin: 0 0.25rem;
+    padding: 0;
 }
 
 .navButton:hover {
@@ -194,17 +201,17 @@
 
 .dots {
     position: absolute;
-    bottom: -0.25rem;
+    bottom: 0.5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 0.75rem;
-    padding: 1rem;
+    gap: 0.5rem;
+    padding: 0.5rem;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--color-white);
     border: none;
@@ -221,9 +228,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--color-accent);
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--color-accent);
     border-radius: 50%;
     transition: transform 0.3s ease;
 }
@@ -237,25 +244,10 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
-.sliderItem {
-    width: 100%;
-    min-width: 300px;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    text-align: center;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-}
-
 .imageContainer {
-    width: 150px;
-    height: 150px;
-    margin: 1rem 0;
+    width: 100px;
+    height: 100px;
+    margin: 0.5rem 0;
 }
 
 .memberImage {
@@ -267,53 +259,108 @@
 
 .slogan {
     font-style: italic;
-    min-height: 2rem;
+    min-height: 1.5rem;
     color: var(--color-accent);
-}
-
-.sloganPlaceholder {
-    opacity: 0.4;
-    font-style: normal;
+    font-size: 0.875rem;
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
-    .slider {
-        padding: 2.5rem 0;
+    .sliderContainer {
+        padding: 0;
+        gap: 0;
     }
 
-    .navButton {
-        font-size: 1.25rem;
-        padding: 0.75rem;
-        width: 2rem;
-        height: 2rem;
-    }
-
-    .sliderItem {
-        padding: 1rem;
-    }
-
-    .sliderItem h3 {
-        font-size: 1.25rem;
-    }
-
-    .sliderItem p {
-        font-size: 1rem;
+    .tabs {
+        padding: 0;
+        gap: 0.5rem;
     }
 
     .tab {
-        padding: 0.5rem 1rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .slider {
+        padding: 1rem 0;
+    }
+
+    .sliderItem {
+        min-height: 200px;
+        padding: 0.75rem;
+        gap: 0.75rem;
+    }
+
+    .sliderItem h3 {
+        font-size: 1.125rem;
+    }
+
+    .sliderItem p {
         font-size: 0.875rem;
     }
 
     .imageContainer {
         width: 75px;
         height: 75px;
-        margin: 1rem 0;
+        margin: 0.25rem 0;
     }
 
-    .memberImage {
-        width: 100%;
-        height: auto;
-        max-height: 100%;
+    .navButton {
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 1rem;
+    }
+
+    .dots {
+        bottom: 0.25rem;
+        gap: 0.375rem;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .dot::before {
+        width: 12px;
+        height: 12px;
+    }
+
+    .slogan {
+        font-size: 0.75rem;
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sliderContainer {
+        gap: 0;
+    }
+
+    .tab {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .memberCount {
+        font-size: 0.625rem;
+    }
+
+    .sliderItem {
+        min-height: 180px;
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .imageContainer {
+        width: 60px;
+        height: 60px;
+    }
+
+    .navButton {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.875rem;
     }
 }
