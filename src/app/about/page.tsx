@@ -28,6 +28,8 @@ const Members = [
     {
         name: "Emilie",
         role: "Gestion",
+        picture: "/images/allmight.webp",
+        slogan: "Ici une phrase d'accroche définie par la personne",
     },
     {
         name: "Ioana",
@@ -44,6 +46,7 @@ const Members = [
     {
         name: "Thiago",
         role: "Finance",
+        picture: "/images/luffy.webp"
     },
     {
         name: "Lucas",
@@ -60,6 +63,7 @@ const Members = [
     {
         name: "Lana",
         role: "Marketing",
+        picture: "/images/pan.webp"
     },
     {
         name: "Hugo",
@@ -76,6 +80,7 @@ const Members = [
     {
         name: "Cécilia",
         role: "Marketing",
+        slogan: "Ici une phrase d'accroche définie par la personne",
     },
     {
         name: "Nolhane",
@@ -84,6 +89,7 @@ const Members = [
     {
         name: "Matéo",
         role: "Vente",
+        picture: "/images/skeleton.webp"
     },
     {
         name: "Amani",
@@ -96,6 +102,7 @@ const Members = [
     {
         name: "Kassidie",
         role: "Production",
+        slogan: "Ici une phrase d'accroche définie par la personne",
     },
     {
         name: "Meghna",

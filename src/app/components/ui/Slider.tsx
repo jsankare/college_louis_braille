@@ -6,6 +6,8 @@ import styles from "./slider.module.css";
 interface Member {
     name: string;
     role: string;
+    picture?: string;
+    slogan?: string;
 }
 
 interface SliderProps {
@@ -84,7 +86,18 @@ export default function Slider({ members }: SliderProps) {
                                 className={`${styles.sliderItem} ${index === currentIndex ? styles.active : ''}`}
                             >
                                 <h3>{member.name}</h3>
-                                <p>{member.role}</p>
+
+                                <div className={styles.imageContainer}>
+                                    {member.picture ? (
+                                        <img src={member.picture} alt={member.name} className={styles.memberImage} />
+                                    ) : (
+                                        <img src="/images/astronaut.png" alt={member.name} className={styles.memberImage} />
+                                    )}
+                                </div>
+
+                                <div className={styles.slogan}>
+                                    {member.slogan || <span className={styles.sloganPlaceholder}></span>}
+                                </div>
                             </div>
                         ))}
                     </div>
