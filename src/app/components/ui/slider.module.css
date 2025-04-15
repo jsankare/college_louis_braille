@@ -1,3 +1,46 @@
+.sliderContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.tabs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.tab {
+    background: rgba(234, 179, 8, 0.1);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab:hover {
+    background: rgba(234, 179, 8, 0.2);
+}
+
+.activeTab {
+    background: var(--color-accent);
+    color: var(--color-black);
+}
+
+.memberCount {
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
 .slider {
     width: 100%;
     position: relative;
@@ -217,5 +260,10 @@
 
     .sliderItem p {
         font-size: 1rem;
+    }
+
+    .tab {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
     }
 }
