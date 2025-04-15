@@ -96,7 +96,7 @@ export default function Slider({ members }: SliderProps) {
                                 </div>
 
                                 <div className={styles.slogan}>
-                                    {member.slogan || <span className={styles.sloganPlaceholder}></span>}
+                                    {member.slogan || <span></span>}
                                 </div>
                             </div>
                         ))}
