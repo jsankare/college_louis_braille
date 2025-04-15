@@ -22,33 +22,101 @@ const Values = [
 
 const Members = [
     {
-        name: "Marc",
-        role: "Design",
+        name: "Léa",
+        role: "Gestion",
     },
     {
-        name: "Idriss",
-        role: "Vente",
+        name: "Emilie",
+        role: "Gestion",
     },
     {
-        name: "Louise",
-        role: "Production",
+        name: "Ioana",
+        role: "Gestion",
     },
     {
-        name: "Marie",
-        role: "gestion",
+        name: "Oriane",
+        role: "Gestion",
     },
     {
-        name: "Alan",
-        role: "Production",
+        name: "Valentin",
+        role: "Gestion",
+    },
+    {
+        name: "Thiago",
+        role: "Finance",
+    },
+    {
+        name: "Lucas",
+        role: "Finance",
+    },
+    {
+        name: "Nolan",
+        role: "Finance",
+    },
+    {
+        name: "Thyméo",
+        role: "Finance",
     },
     {
         name: "Lana",
+        role: "Marketing",
+    },
+    {
+        name: "Hugo",
+        role: "Marketing",
+    },
+    {
+        name: "Eleona",
+        role: "Marketing",
+    },
+    {
+        name: "Maëlys",
+        role: "Marketing",
+    },
+    {
+        name: "Cécilia",
+        role: "Marketing",
+    },
+    {
+        name: "Nolhane",
         role: "Vente",
     },
     {
-        name: "Azer",
+        name: "Matéo",
+        role: "Vente",
+    },
+    {
+        name: "Amani",
+        role: "Vente",
+    },
+    {
+        name: "Emma",
+        role: "Vente",
+    },
+    {
+        name: "Kassidie",
         role: "Production",
-    }
+    },
+    {
+        name: "Meghna",
+        role: "Production",
+    },
+    {
+        name: "Maxime",
+        role: "Production",
+    },
+    {
+        name: "Timéo",
+        role: "Production",
+    },
+    {
+        name: "Sacha",
+        role: "Production",
+    },
+    {
+        name: "Tiago",
+        role: "Production",
+    },
 ]
 
 export default function About() {

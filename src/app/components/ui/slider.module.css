@@ -4,73 +4,186 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(12, 17, 27, 0.9) 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Decorative background pattern */
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+            45deg,
+            rgba(234, 179, 8, 0.03) 0px,
+            rgba(234, 179, 8, 0.03) 2px,
+            transparent 2px,
+            transparent 10px
+    );
+    pointer-events: none;
+    animation: patternShift 20s linear infinite;
+}
+
+@keyframes patternShift {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 100px; }
 }
 
 .sliderContent {
     flex: 1;
     overflow: hidden;
+    position: relative;
+    padding: 1rem;
+}
+
+/* Decorative corner elements */
+.sliderContent::before,
+.sliderContent::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--color-accent);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}
+
+.sliderContent::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none;
+}
+
+.sliderContent::after {
+    bottom: 0;
+    right: 0;
+    border-left: none;
+    border-top: none;
+}
+
+.slider:hover .sliderContent::before,
+.slider:hover .sliderContent::after {
+    opacity: 0.8;
 }
 
 .sliderTrack {
     display: flex;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
 }
 
 .sliderItem {
     flex: 0 0 100%;
-    padding: 1.5rem;
+    padding: 2rem;
     text-align: center;
-    background: var(--color-secondary-dark);
-    border-radius: 0.5rem;
-    transition: transform 0.3s ease;
+    background: rgba(8, 12, 19, 0.8);
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    transform: scale(0.98);
+    opacity: 0.8;
+}
+
+.sliderItem.active {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .sliderItem h3 {
     color: var(--color-accent);
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    display: inline-block;
+}
+
+/* Decorative underline for headings */
+.sliderItem h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.sliderItem:hover h3::after {
+    width: 100%;
 }
 
 .sliderItem p {
     color: var(--color-white);
-    font-size: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .navButton {
-    background: transparent;
-    border: none;
+    background: rgba(234, 179, 8, 0.1);
+    border: 1px solid var(--color-accent);
     color: var(--color-accent);
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
-    transition: opacity 0.3s ease;
+    padding: 1rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 2;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
 }
 
 .navButton:hover {
-    opacity: 0.7;
+    background: var(--color-accent);
+    color: var(--color-black);
+    transform: scale(1.1);
 }
 
 .dots {
     position: absolute;
-    bottom: -1rem;
+    bottom: -0.25rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    padding: 1rem;
 }
 
 .dot {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: var(--color-white);
     border: none;
     padding: 0;
     cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
 }
 
 .activeDot {
@@ -78,20 +191,31 @@
     background: var(--color-accent);
 }
 
+.activeDot::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
 @media (max-width: 768px) {
+    .slider {
+        padding: 1rem 0;
+    }
+
     .navButton {
         font-size: 1.25rem;
+        padding: 0.75rem;
+        width: 3rem;
+        height: 3rem;
     }
 
     .sliderItem {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .sliderItem h3 {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
     }
 
     .sliderItem p {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }
