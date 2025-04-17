@@ -8,6 +8,7 @@ import "./styles/layout/mission.css";
 import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import MissionBaneer from "./components/ui/MissionBaneer";
+import { Analytics } from "@vercel/analytics/react"
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
             <MissionBaneer />
         </main>
         <Footer />
+        <Analytics />
         </body>
         </html>
     );

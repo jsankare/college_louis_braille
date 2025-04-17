@@ -10,6 +10,7 @@
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "next": "15.2.4",
     "prepa-metier_braille": "file:",
     "react": "^19.0.0",
