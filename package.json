@@ -2,12 +2,14 @@
   "name": "prepa-metier_braille",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out",
+    "sitemap": "node scripts/generateSitemap.js"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",

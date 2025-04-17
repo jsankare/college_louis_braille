@@ -1,36 +1,64 @@
-import { readdirSync, writeFileSync } from 'fs';
-import { join } from 'path';
+import { readdirSync, writeFileSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-const WEBSITE_URL = 'https://prepa-metier-louis-braille.fr/';
+// Obtenir le répertoire courant avec ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-function getAllPages(directory){
+const WEBSITE_URL = 'https://prepa-metier-louis-braille.fr';
+
+// Fonction pour vérifier si un chemin existe
+function pathExists(path) {
+    try {
+        return existsSync(path);
+    } catch (error) {
+        console.error(`Erreur lors de la vérification du chemin ${path}:`, error);
+        return false;
+    }
+}
+
+// Fonction pour obtenir toutes les pages du projet Next.js
+function getAllPages(directory) {
+    console.log(`Recherche de pages dans: ${directory}`);
+    
     // Initialiser pages comme un tableau vide
     let pages = [];
 
     try {
-        const files = readdirSync(directory, { withFileTypes: true });
+        // Vérifier si le répertoire existe
+        if (!pathExists(directory)) {
+            console.error(`Le répertoire ${directory} n'existe pas`);
+            return pages;
+        }
 
+        const files = readdirSync(directory, { withFileTypes: true });
+        
         for (const file of files) {
             const fullPath = join(directory, file.name);
-
+            
             if (file.isDirectory()) {
-                // Fusionner avec les pages retournées par l'appel récursif
-                pages = [...pages, ...getAllPages(fullPath)];
-            } else if (
-                file.name === 'page.tsx' &&
-                !fullPath.includes('_') &&
-                !fullPath.includes('layout.tsx')
-            ) {
+                // Exclure les répertoires commençant par _ (convention Next.js)
+                if (!file.name.startsWith('_')) {
+                    // Fusionner avec les pages retournées par l'appel récursif
+                    pages = [...pages, ...getAllPages(fullPath)];
+                }
+            } else if (file.name === 'page.tsx' || file.name === 'page.js') {
                 // Convertir le chemin du fichier en route
-                const route = directory
+                let route = directory
                     .replace(join(process.cwd(), 'src/app'), '')
                     .replace(/\\/g, '/');
-
-                if (route === '') {
-                    pages.push('/');
+                
+                // Supprimer les barres obliques au début si elles existent
+                route = route.startsWith('/') ? route : `/${route}`;
+                
+                if (route === '/') {
+                    pages.push('');
                 } else {
                     pages.push(route);
                 }
+                
+                console.log(`Page trouvée: ${route || '/'}`);
             }
         }
     } catch (error) {
@@ -41,15 +69,30 @@ function getAllPages(directory){
 }
 
 function generateSitemap() {
-    const pages = getAllPages(join(process.cwd(), 'src/app'));
+    // Chemin vers le répertoire src/app
+    const appDirectory = join(process.cwd(), 'src/app');
+    console.log(`Chemin du répertoire appDirectory: ${appDirectory}`);
+    
+    // Vérifier si le répertoire existe
+    if (!pathExists(appDirectory)) {
+        console.error(`Le répertoire ${appDirectory} n'existe pas`);
+        return;
+    }
+    
+    // Récupérer toutes les pages
+    const pages = getAllPages(appDirectory);
     const currentDate = new Date().toISOString();
 
-    // Vérifier que pages existe et est un tableau
+    // Vérifier que pages existe et est un tableau non vide
     if (!Array.isArray(pages) || pages.length === 0) {
         console.warn('⚠️ Aucune page trouvée pour générer le sitemap');
         return;
     }
 
+    console.log(`Nombre de pages trouvées: ${pages.length}`);
+    console.log(`Pages trouvées: ${pages.join(', ')}`);
+
+    // Générer le contenu du sitemap
     const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map(page => `    <url>
@@ -61,11 +104,15 @@ ${pages.map(page => `    <url>
 </urlset>`;
 
     try {
-        writeFileSync('public/sitemap.xml', sitemapContent);
-        console.log('✅ Sitemap généré avec succès dans public/sitemap.xml');
+        // Créer le fichier sitemap.xml dans le répertoire public
+        const sitemapPath = join(process.cwd(), 'public/sitemap.xml');
+        writeFileSync(sitemapPath, sitemapContent);
+        console.log(`✅ Sitemap généré avec succès dans ${sitemapPath}`);
     } catch (error) {
         console.error('Erreur lors de l\'écriture du sitemap:', error);
     }
 }
 
+// Exécuter la fonction de génération du sitemap
+console.log('Début de la génération du sitemap...');
 generateSitemap();
